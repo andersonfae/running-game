@@ -1,5 +1,7 @@
 const mario = document.querySelector(".mario");
 const pipe = document.querySelector(".pipe");
+const startPage = document.getElementById("start");
+const gameOverPage = document.getElementById("game-over");
 
 // GAME SOUNDS //
 
@@ -9,8 +11,8 @@ gameSound.volume = 0.3;
 gameSound.loop = true;
 
 const gameStart = new Audio();
-jumpSound.src = "./sounds/mario-start.mp4";
-jumpSound.volume = 0.6;
+gameStart.src = "./sounds/mario-start.mp4";
+gameStart.volume = 0.6;
 
 const jumpSound = new Audio();
 jumpSound.src = "./sounds/mario-jump.mp4";
@@ -30,28 +32,56 @@ const jump = () => {
   }, 500);
 };
 
-const loop = setInterval(() => {
-  const pipePosition = pipe.offsetLeft;
-  const marioPosition = +window
-    .getComputedStyle(mario)
-    .bottom.replace("px", "");
+window.onload = () => {
+  startPage.classList.remove("hidden");
+  gameOverPage.classList.add("hidden");
+  document.querySelector(".start-btn").onclick = () => {
+    start();
+  };
+};
 
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-    pipe.style.animation = "none";
-    pipe.style.left = `${pipePosition}px`;
+function start() {
+  startPage.classList.add("hidden");
+  gameOverPage.classList.add("hidden");
 
-    mario.style.animation = "none";
-    mario.style.bottom = `${marioPosition}px`;
+  gameStart.play();
 
-    mario.src = "./img/game-over.png";
-    mario.style.width = "75px";
-    mario.style.marginLeft = "50px";
+  setTimeout(() => {
+    gameSound.play();
+  }, 1000);
 
-    gameSound.pause();
-    lostSound.play();
+  const loop = setInterval(() => {
+    const pipePosition = pipe.offsetLeft;
+    const marioPosition = +window
+      .getComputedStyle(mario)
+      .bottom.replace("px", "");
 
-    clearInterval(loop);
-  }
-}, 10);
+    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+      pipe.style.animation = "none";
+      pipe.style.left = `${pipePosition}px`;
+
+      mario.style.animation = "none";
+      mario.style.bottom = `${marioPosition}px`;
+
+      mario.src = "./img/game-over.png";
+      mario.style.width = "75px";
+      mario.style.marginLeft = "50px";
+
+      setTimeout(() => {
+        gameOverPage.classList.remove("hidden");
+      }, 1000);
+
+      gameSound.pause();
+      lostSound.play();
+
+      clearInterval(loop);
+    }
+  }, 10);
+}
 
 document.addEventListener("keydown", jump);
+
+// function start() {
+//   document.addEventListener("keydown", startPage);
+//   startPage.classList.add("hidden");
+// }

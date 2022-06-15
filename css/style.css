@@ -4,8 +4,34 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #008000;
+}
+
 .hidden {
   display: none;
+}
+
+#start {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000 url(/img/mario-start.jpg) no-repeat center center;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background-size: 100%;
+}
+
+#game-over {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000 url(/img/game-over-mario.png) no-repeat center center;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background-size: 100%;
 }
 
 .game-board {
@@ -22,7 +48,7 @@
   position: absolute;
   bottom: 0;
   width: 50px;
-  animation: pipe-animation 1s infinite linear;
+  animation: pipe-animation 1.5s infinite linear;
 }
 
 .mario {
