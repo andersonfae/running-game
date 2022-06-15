@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .game-board {
   width: 100%;
   position: relative;
@@ -18,7 +22,7 @@
   position: absolute;
   bottom: 0;
   width: 50px;
-  animation: pipe-animation 2s infinite linear;
+  animation: pipe-animation 1s infinite linear;
 }
 
 .mario {
@@ -29,6 +33,12 @@
 
 .jump {
   animation: jump 500ms ease-out;
+}
+
+.clouds {
+  position: absolute;
+  width: 550px;
+  animation: clouds-animation 20s infinite linear;
 }
 
 @keyframes pipe-animation {
@@ -55,5 +65,14 @@
   }
   100% {
     bottom: 0;
+  }
+}
+
+@keyframes clouds-animation {
+  from {
+    right: -550px;
+  }
+  to {
+    right: 100%;
   }
 }
