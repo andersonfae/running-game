@@ -16,7 +16,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: url(/img/mario-start.jpg) no-repeat center center;
+  background: #000 url(/img/mario-start.jpg) no-repeat center center;
   left: 0;
   top: 0;
   z-index: 9999;
@@ -27,7 +27,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: url(/img/game-over-mario.png) no-repeat center center;
+  background: #000 url(/img/game-over-mario.png) no-repeat center center;
   left: 0;
   top: 0;
   z-index: 9999;
