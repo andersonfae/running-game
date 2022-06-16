@@ -16,7 +16,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #000 url(./img/mario-start.jpg) no-repeat center center;
+  background: #000 url("./img/mario-start.jpg") no-repeat center center;
   left: 0;
   top: 0;
   z-index: 9999;
@@ -27,7 +27,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #000 url(./img/game-over-mario.png) no-repeat center center;
+  background: #000 url("./img/game-over-mario.png") no-repeat center center;
   left: 0;
   top: 0;
   z-index: 9999;
@@ -51,6 +51,20 @@ body {
   animation: pipe-animation 1.5s infinite linear;
 }
 
+.shell {
+  position: absolute;
+  bottom: 0;
+  width: 70px;
+  animation: shell-animation 3s infinite linear;
+}
+
+.bowser {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  animation: bowser-animation 5s infinite linear;
+}
+
 .mario {
   width: 150px;
   position: absolute;
@@ -68,6 +82,24 @@ body {
 }
 
 @keyframes pipe-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes shell-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+@keyframes bowser-animation {
   from {
     right: -80px;
   }
