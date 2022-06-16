@@ -48,14 +48,14 @@ body {
   position: absolute;
   bottom: 0;
   width: 50px;
-  animation: pipe-animation 1.5s infinite linear;
+  animation: pipe-animation 2s infinite linear;
 }
 
 .shell {
   position: absolute;
   bottom: 0;
   width: 70px;
-  animation: shell-animation 3s infinite linear;
+  animation: shell-animation 3.5s infinite linear;
 }
 
 .bowser {
